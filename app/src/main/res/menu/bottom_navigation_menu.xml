@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/HeadlineFragment"
+        android:title="@string/headline"
+        android:icon="@drawable/baseline_headlines_24">
+    </item>
+
+    <item
+        android:id="@+id/FavouritesFragment"
+        android:title="@string/favourites"
+        android:icon="@drawable/baseline_favorites_24">
+    </item>
+
+    <item
+        android:id="@+id/SearchFragment"
+        android:title="@string/search"
+        android:icon="@drawable/baseline_search_24">
+    </item>
+
+</menu>
