@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import okio.IOException
 import retrofit2.Response
 
-class NewsViewModel(app: Application, val newsRepository: NewsRepository): AndroidViewModel(app){
+class NewsViewModel(app: Application, private val newsRepository: NewsRepository): AndroidViewModel(app){
     val headlines: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var headlinesPage = 1
     var headlinesResponse: NewsResponse? = null
@@ -35,7 +35,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         headlinesInternet(countryCode)
     }
 
-    fun getSearchNews(searchQuery: String) = viewModelScope.launch {
+    fun searchNews(searchQuery: String) = viewModelScope.launch {
         searchNewsInternet(searchQuery)
     }
 
@@ -124,7 +124,7 @@ class NewsViewModel(app: Application, val newsRepository: NewsRepository): Andro
         searchNews.postValue(Resource.Loading())
         try {
             if(internetConnection(this.getApplication())){
-                val response = newsRepository.getHeadlines(searchQuery, searchNewsPage)
+                val response = newsRepository.searchNews(searchQuery, searchNewsPage)
                     searchNews.postValue(handleSearchNewsResponse(response))
             }
             else{
