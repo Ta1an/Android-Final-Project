@@ -74,7 +74,9 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headlines) {
                     hideProgressBar()
                     response.message.let { message ->
                         Toast.makeText(activity, "Sorry, error: $message", Toast.LENGTH_LONG).show()
-                        showErrorMessage(message)
+                        if (message != null) {
+                            showErrorMessage(message)
+                        }
                     }
 
                 }

@@ -82,3 +82,8 @@ dependencies {
     implementation (libs.glide.v4120)
     ksp (libs.compiler)
 }
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
